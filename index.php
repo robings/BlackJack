@@ -94,13 +94,17 @@ function determinePictureFace ($pictureFaceNo) {
  */
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
     $playerHtml = '<div><h2>Player</h2>';
-    $playerHtml .= '<div class="card" style="color: ' .redOrBlack($playerHandParam[0]['face']) . '">' . $playerHandParam[0]['face'] . '</div>';
-    $playerHtml .= '<div class="card" style="color: ' .redOrBlack($playerHandParam[1]['face']) . '">' . $playerHandParam[1]['face'] . '</div>';
+    $playerHtml .= '<div class="card" style="color: ' .redOrBlack($playerHandParam[0]['face']) . '">';
+    $playerHtml .= cardBuilder($playerHandParam[0]['face'], $playerScoreParam[0]['score']) . '</div>';
+    $playerHtml .= '<div class="card" style="color: ' .redOrBlack($playerHandParam[1]['face']) . '">';
+    $playerHtml .= cardBuilder($playerHandParam[1]['face'], $playerHandParam[1]['score']) . '</div>';
     $playerHtml .= '<div class="score"> Score: ' . $playerScoreParam . '</div></div>';
 
     $dealerHtml = '<div><h2>Dealer</h2>';
-    $dealerHtml .= '<div class="card" style="color: ' .redOrBlack($dealerHandParam[0]['face']) . '">' . $dealerHandParam[0]['face'] . '</div>';
-    $dealerHtml .= '<div class="card" style="color: ' .redOrBlack($dealerHandParam[1]['face']) . '">' . $dealerHandParam[1]['face'] . '</div>';
+    $dealerHtml .= '<div class="card" style="color: ' .redOrBlack($dealerHandParam[0]['face']) . '">';
+    $dealerHtml .= cardBuilder( $dealerHandParam[0]['face'], $dealerHandParam[0]['score']) . '</div>';
+    $dealerHtml .= '<div class="card" style="color: ' .redOrBlack($dealerHandParam[1]['face']) . '">';
+    $dealerHtml .= cardBuilder( $dealerHandParam[1]['face'],  $dealerHandParam[1]['score']) . '</div>';
     $dealerHtml .= '<div class="score">Score: ' . $dealerScoreParam . '</div></div>';
 
     $winnerHtml = '<div class="winner">';
@@ -131,7 +135,7 @@ function cardBuilder ($cardToProcess, $score) {
     } elseif (strpos($cardToProcess, 'Spades')) {
         $suitChrCode = '&#9824';
     }
-
+ return $cardToProcess . '<br /><br />' . $suitChrCode;
 
 }
 
