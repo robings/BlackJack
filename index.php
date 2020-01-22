@@ -23,6 +23,9 @@ for ($i = 1; $i < 5; $i ++) {
         if ($j > 10) {
             $face = determinePictureFace ($j);
             $cardScore = 10;
+        } elseif ($j == 1) {
+            $face = 'Ace';
+            $cardScore = 1;
         } else {
             $face = $j;
             $cardScore = $j;
@@ -118,6 +121,9 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
 buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
 
 ////remove after testing
+//echo '<pre>';
+//var_dump($deckOfCards);
+//echo '</pre>';
 //echo '<pre>';
 //var_dump($playerHand, $dealerHand);
 //echo '</pre>';
