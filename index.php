@@ -21,7 +21,7 @@ for ($i = 1; $i < 5; $i ++) {
 
         //what if face is a picture card?
         if ($j > 10) {
-            $face = determinePictureFace ($j);
+            $face = determinePictureFace($j);
             $cardScore = 10;
         } elseif ($j == 1) {
             $face = 'Ace';
@@ -78,14 +78,7 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
    echo '<head>';
     echo '<title>Mayden Academy Casino | Blackjack</title>';
     echo '<style>';
-    echo '* { box-sizing: border-box; }';
-    echo 'html { font-family: "Helvetica Neue", sans-serif; font-size: 16px; }';
-    echo 'h1 { text-align: center; font-size: 2rem; }';
-    echo 'section { background-color: #009900; width: 40%; margin: 0 auto; overflow: auto; border: 4px solid #663300; border-radius: 10px; }';
-    echo 'section div { float: left; padding: 30px; width: 50%}';
-    echo 'section div.winner { width: 100%; color: #CC0000; text-align: center; font-size: 1.25rem;}';
-    echo 'h2 { color: #CC0000; font-size: 1.5rem; }';
-    echo 'p { font-size: 0.75rem; text-align: center; ';
+
     echo '</style>';
 
     echo '</head>';
