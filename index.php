@@ -32,15 +32,14 @@ for ($i = 1; $i < 5; $i ++) {
         $faceName = $face. ' of ' . $suitName;
 
         $deckOfCards[$deckArrayKey] = ['face' => $faceName, 'score' => $cardScore];
-
     }
-
-
-
-
-
 }
 
+/**
+ * function to determine picture card face
+ * @param $pictureFaceNo
+ * @return string
+ */
 function determinePictureFace ($pictureFaceNo) {
     if ($pictureFaceNo == 11) {
         return 'Jack';
@@ -52,23 +51,8 @@ function determinePictureFace ($pictureFaceNo) {
 }
 
 
-//$deckOfCards = [
-//    'heart1' => [
-//    'face' => 'Ace of Hearts',
-//    'score' => 1
-//    ],
-//    'heart2' => [
-//        'face' => 'Two of Hearts',
-//        'score' => 2
-//    ],
-//    'heart3' => [
-//        'face' => 'Three of Hearts',
-//        'score' => 3
-//    ]
-//];
-//
-//$deckOfCards['heart4'] = [ 'face' => 'Four of Hearts', 'score' => 4 ];
+//shuffle the deck
+shuffle($deckOfCards);
 
-//shuffle($deckOfCards);
 
-var_dump($deckOfCards);
+//var_dump($deckOfCards);
