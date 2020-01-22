@@ -93,15 +93,15 @@ function determinePictureFace ($pictureFaceNo) {
  * @param $dealerScoreParam
  */
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
-    $playerHtml = '<div class="player"><h2>Player</h2>';
-    $playerHtml .= $playerHandParam[0]['face'] . '<br />';
-    $playerHtml .= $playerHandParam[1]['face'] . '<br /><br />';
-    $playerHtml .= 'Score: ' . $playerScoreParam . '</div>';
+    $playerHtml = '<div><h2>Player</h2>';
+    $playerHtml .= '<div class="card">' . $playerHandParam[0]['face'] . '</div>';
+    $playerHtml .= '<div class="card">' . $playerHandParam[1]['face'] . '</div>';
+    $playerHtml .= '</div><div> Score: ' . $playerScoreParam . '</div>';
 
-    $dealerHtml = '<div class="dealer"><h2>Dealer</h2>';
-    $dealerHtml .= $dealerHandParam[0]['face'] . '<br />';
-    $dealerHtml .= $dealerHandParam[1]['face'] . '<br /><br />';
-    $dealerHtml .= 'Score: ' . $dealerScoreParam . '</div>';
+    $dealerHtml = '<div><h2>Dealer</h2>';
+    $dealerHtml .= '<div class="card">' . $dealerHandParam[0]['face'] . '</div>';
+    $dealerHtml .= '<div class="card">' . $dealerHandParam[1]['face'] . '</div>';
+    $dealerHtml .= '</div><div>Score: ' . $dealerScoreParam . '</div>';
 
     $winnerHtml = '<div class="winner">';
     $winnerHtml .= 'The winner is: ' . whoWins($playerScoreParam , $dealerScoreParam) . '</div>';
