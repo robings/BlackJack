@@ -56,8 +56,6 @@ function determinePictureFace ($pictureFaceNo) {
 //shuffle the deck
 shuffle($deckOfCards);
 
-//var_dump($deckOfCards);
-
 //deal
 $playerHand = [ $deckOfCards[0], $deckOfCards[2] ];
 $dealerHand = [ $deckOfCards[1], $deckOfCards[3] ];
