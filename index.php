@@ -50,9 +50,35 @@ function determinePictureFace ($pictureFaceNo) {
     }
 }
 
-
 //shuffle the deck
 shuffle($deckOfCards);
 
-
 //var_dump($deckOfCards);
+
+//deal
+$playerHand = [ $deckOfCards[0], $deckOfCards[2] ];
+$dealerHand = [ $deckOfCards[1], $deckOfCards[3] ];
+
+//remove after testing
+var_dump($playerHand, $dealerHand);
+
+$playerHandScore = $deckOfCards[0]['score'] + $deckOfCards[2]['score'];
+$dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
+
+echo '<br />' . $playerHandScore;
+echo '<br />' . $dealerHandScore;
+
+function buildPageDisplay() {
+    echo '<style>
+                h1 { color: #ff0000; text-align: center; }</style>';
+    echo '<h1>BlackJack</h1>';
+    echo '<section>
+            <div class="player">Player</div>
+            <div class="dealer">Dealer</div>
+
+           </section>';
+
+
+}
+
+buildPageDisplay();
