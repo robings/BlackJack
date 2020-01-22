@@ -71,15 +71,24 @@ $dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
  * @param $dealerScoreParam
  */
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
+   echo '<!DOCTYPE html>';
+   echo '<html lang="en-GB">';
+
+   echo '<head>';
+
     echo '<style>';
     echo '* { box-sizing: border-box; }';
-    echo 'html { font-family: "Helvetica Neue", sans-serif; }';
-    echo 'h1 { text-align: center; }';
+    echo 'html { font-family: "Helvetica Neue", sans-serif; font-size: 16px; }';
+    echo 'h1 { text-align: center; font-size: 2rem; }';
     echo 'section { background-color: #009900; width: 80%; margin: 0 auto; overflow: auto; border: 2px solid #333333; }';
-    echo 'section div { float: left; padding: 30; width: 50%}';
-    echo 'section div.winner { width: 100%; color: #CC0000; text-align: center; }';
-    echo 'h2 { color: #CC0000; }';
+    echo 'section div { float: left; padding: 30px; width: 50%}';
+    echo 'section div.winner { width: 100%; color: #CC0000; text-align: center; font-size: 1.25rem;}';
+    echo 'h2 { color: #CC0000; font-size: 1.5rem; }';
     echo '</style>';
+
+    echo '</head>';
+
+    echo '<body>';
 
     echo '<section>';
     echo '<h1>BlackJack</h1>';
@@ -100,6 +109,10 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     echo ($playerScoreParam > $dealerScoreParam ? 'Player' : 'Dealer');
     echo '</div>';
     echo '</section>';
+
+    echo '</body>';
+
+    echo '</html>';
 }
 
 buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
