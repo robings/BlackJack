@@ -60,25 +60,43 @@ $playerHand = [ $deckOfCards[0], $deckOfCards[2] ];
 $dealerHand = [ $deckOfCards[1], $deckOfCards[3] ];
 
 //remove after testing
+echo '<pre>';
 var_dump($playerHand, $dealerHand);
+echo '</pre>';
+//
 
 $playerHandScore = $deckOfCards[0]['score'] + $deckOfCards[2]['score'];
 $dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
 
+//remove after testing
 echo '<br />' . $playerHandScore;
 echo '<br />' . $dealerHandScore;
+//
 
-function buildPageDisplay() {
-    echo '<style>
-                h1 { color: #ff0000; text-align: center; }</style>';
+function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
+    echo '<style>';
+    echo '* { box-sizing: border-box; }';
+    echo 'h1 { color: #ff0000; text-align: center; }';
+    echo 'section { width: 80%; margin: 0 auto; overflow: auto; }';
+    echo 'section div { float: left; padding: 30; width: 50%}';
+    echo '</style>';
+
     echo '<h1>BlackJack</h1>';
-    echo '<section>
-            <div class="player">Player</div>
-            <div class="dealer">Dealer</div>
 
-           </section>';
+    echo '<section>';
+    echo '<div class="player">';
+    echo '<h2>Player</h2>';
+    echo $playerHandParam[0]['face'] . '<br />';
+    echo $playerHandParam[1]['face'] . '<br />';
+    echo '</div>';
+    echo '<div class="dealer">';
+    echo '<h2>Dealer</h2>';
+    echo $dealerHandParam[0]['face'] . '<br />';
+    echo $dealerHandParam[1]['face'] . '<br />';
+    echo '</div>';
+    echo '</section>';
 
 
 }
 
-buildPageDisplay();
+buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
