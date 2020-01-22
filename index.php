@@ -78,7 +78,7 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
    echo '<html lang="en-GB">';
 
    echo '<head>';
-
+    echo '<title>Mayden Academy Casino | Blackjack</title>';
     echo '<style>';
     echo '* { box-sizing: border-box; }';
     echo 'html { font-family: "Helvetica Neue", sans-serif; font-size: 16px; }';
@@ -87,6 +87,7 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     echo 'section div { float: left; padding: 30px; width: 50%}';
     echo 'section div.winner { width: 100%; color: #CC0000; text-align: center; font-size: 1.25rem;}';
     echo 'h2 { color: #CC0000; font-size: 1.5rem; }';
+    echo 'p { font-size: 0.75rem; text-align: center; ';
     echo '</style>';
 
     echo '</head>';
@@ -111,7 +112,10 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     echo 'The winner is: ';
      echo whoWins($playerScoreParam , $dealerScoreParam);
     echo '</div>';
+
     echo '</section>';
+
+    echo '<p>Disclaimer: This is just for practice. Mayden Academy doesn\'t really run a casino.</p>';
 
     echo '</body>';
 
