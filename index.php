@@ -59,44 +59,55 @@ shuffle($deckOfCards);
 $playerHand = [ $deckOfCards[0], $deckOfCards[2] ];
 $dealerHand = [ $deckOfCards[1], $deckOfCards[3] ];
 
-//remove after testing
-echo '<pre>';
-var_dump($playerHand, $dealerHand);
-echo '</pre>';
-//
-
+//score
 $playerHandScore = $deckOfCards[0]['score'] + $deckOfCards[2]['score'];
 $dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
 
-//remove after testing
-echo '<br />' . $playerHandScore;
-echo '<br />' . $dealerHandScore;
-//
-
+/**
+ * builds page display of results of game
+ * @param $playerHandParam
+ * @param $playerScoreParam
+ * @param $dealerHandParam
+ * @param $dealerScoreParam
+ */
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
     echo '<style>';
     echo '* { box-sizing: border-box; }';
-    echo 'h1 { color: #ff0000; text-align: center; }';
-    echo 'section { width: 80%; margin: 0 auto; overflow: auto; }';
+    echo 'html { font-family: "Helvetica Neue", sans-serif; background-color: #009900}';
+    echo 'h1 { text-align: center; }';
+    echo 'section { width: 80%; margin: 0 auto; overflow: auto; border: 1px solid #000; }';
     echo 'section div { float: left; padding: 30; width: 50%}';
+    echo 'section div.winner { width: 100%; }';
+    echo 'h2 { color: #990000; }';
     echo '</style>';
 
-    echo '<h1>BlackJack</h1>';
-
     echo '<section>';
+    echo '<h1>BlackJack</h1>';
     echo '<div class="player">';
     echo '<h2>Player</h2>';
     echo $playerHandParam[0]['face'] . '<br />';
-    echo $playerHandParam[1]['face'] . '<br />';
+    echo $playerHandParam[1]['face'] . '<br /><br />';
+    echo 'Score: ' . $playerScoreParam;
     echo '</div>';
     echo '<div class="dealer">';
     echo '<h2>Dealer</h2>';
     echo $dealerHandParam[0]['face'] . '<br />';
-    echo $dealerHandParam[1]['face'] . '<br />';
+    echo $dealerHandParam[1]['face'] . '<br /><br />';
+    echo 'Score: ' . $dealerScoreParam;
+    echo '</div>';
+    echo '<div class="winner">';
+    echo 'The winner is: ';
+    echo ($playerScoreParam > $dealerScoreParam ? 'Player' : 'Dealer');
     echo '</div>';
     echo '</section>';
-
-
 }
 
 buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
+
+////remove after testing
+//echo '<pre>';
+//var_dump($playerHand, $dealerHand);
+//echo '</pre>';
+//echo '<br />' . $playerHandScore;
+//echo '<br />' . $dealerHandScore;
+////
