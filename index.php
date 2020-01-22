@@ -38,13 +38,13 @@ function buildDeck () {
         for ($j = 1; $j < 14; $j++) {
             //determine suit
             if ($i == 1) {
-                $suitName = 'Hearts';
+                $suitName = 'Hearts<br /><br />&#9829;';
             } elseif ($i == 2) {
-                $suitName = 'Clubs';
+                $suitName = 'Clubs<br /><br />&#9827;';
             } elseif ($i == 3) {
-                $suitName = 'Diamonds';
+                $suitName = 'Diamonds<br /><br />&#9830;';
             } elseif ($i == 4) {
-                $suitName = 'Spades';
+                $suitName = 'Spades<br /><br />&#9824;';
             } else {
                 echo 'opps there isn\'t a fifth suit';
             }
