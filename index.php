@@ -83,7 +83,7 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     echo '* { box-sizing: border-box; }';
     echo 'html { font-family: "Helvetica Neue", sans-serif; font-size: 16px; }';
     echo 'h1 { text-align: center; font-size: 2rem; }';
-    echo 'section { background-color: #009900; width: 80%; margin: 0 auto; overflow: auto; border: 2px solid #333333; }';
+    echo 'section { background-color: #009900; width: 40%; margin: 0 auto; overflow: auto; border: 4px solid #663300; border-radius: 10px; }';
     echo 'section div { float: left; padding: 30px; width: 50%}';
     echo 'section div.winner { width: 100%; color: #CC0000; text-align: center; font-size: 1.25rem;}';
     echo 'h2 { color: #CC0000; font-size: 1.5rem; }';
