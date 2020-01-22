@@ -117,6 +117,10 @@ function redOrBlack ($stringtoParse) {
     }
 }
 
+function cardBuilder ($cardToProcess) {
+
+}
+
 function whoWins($playerScore, $dealerScore) {
     if ($playerScore > $dealerScore) {
         return 'Player';
