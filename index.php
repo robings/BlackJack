@@ -73,12 +73,12 @@ $dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
     echo '<style>';
     echo '* { box-sizing: border-box; }';
-    echo 'html { font-family: "Helvetica Neue", sans-serif; background-color: #009900}';
+    echo 'html { font-family: "Helvetica Neue", sans-serif; }';
     echo 'h1 { text-align: center; }';
-    echo 'section { width: 80%; margin: 0 auto; overflow: auto; border: 1px solid #000; }';
+    echo 'section { background-color: #009900; width: 80%; margin: 0 auto; overflow: auto; border: 2px solid #333333; }';
     echo 'section div { float: left; padding: 30; width: 50%}';
-    echo 'section div.winner { width: 100%; }';
-    echo 'h2 { color: #990000; }';
+    echo 'section div.winner { width: 100%; color: #CC0000; text-align: center; }';
+    echo 'h2 { color: #CC0000; }';
     echo '</style>';
 
     echo '<section>';
