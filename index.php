@@ -1,41 +1,73 @@
 <?php
 //blackjack aces low, picture cards 10
 
-$deckOfCards = [];
+/** function to call the deck builder, shuffle the deck, deal, score and call function to build the html to display
+ * @return string
+ */
+function playBlackJack() {
+    $deckOfCards = buildDeck();
+    //shuffle the deck
+    shuffle($deckOfCards);
 
-//build the deck
-for ($i = 1; $i < 5; $i ++) {
-    for ($j = 1; $j < 14; $j ++) {
-        //determine suit
-        if ($i == 1) {
-            $suitName = 'Hearts';
-        } elseif ($i == 2) {
-            $suitName = 'Clubs';
-        } elseif ($i == 3) {
-            $suitName = 'Diamonds';
-        } elseif ($i == 4) {
-            $suitName = 'Spades';
-        } else {
-            echo 'opps there isn\'t a fifth suit';
+//    echo '<pre>';
+//    var_dump($deckOfCards);
+//    echo '</pre>';
+
+    //deal
+    $playerHand = [$deckOfCards[0], $deckOfCards[2]];
+    $dealerHand = [$deckOfCards[1], $deckOfCards[3]];
+
+//    echo '<pre>';
+//    var_dump($playerHand, $dealerHand);
+//    echo '</pre>';
+
+    //score
+    $playerHandScore = $deckOfCards[0]['score'] + $deckOfCards[2]['score'];
+    $dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
+
+    return buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
+}
+
+/**
+ * builds the deck of cards
+ * @return array
+ */
+function buildDeck () {
+    $deckBuild = [];
+    for ($i = 1; $i < 5; $i++) {
+        for ($j = 1; $j < 14; $j++) {
+            //determine suit
+            if ($i == 1) {
+                $suitName = 'Hearts';
+            } elseif ($i == 2) {
+                $suitName = 'Clubs';
+            } elseif ($i == 3) {
+                $suitName = 'Diamonds';
+            } elseif ($i == 4) {
+                $suitName = 'Spades';
+            } else {
+                echo 'opps there isn\'t a fifth suit';
+            }
+
+            //what if face is a picture card?
+            if ($j > 10) {
+                $face = determinePictureFace($j);
+                $cardScore = 10;
+            } elseif ($j == 1) {
+                $face = 'Ace';
+                $cardScore = 1;
+            } else {
+                $face = $j;
+                $cardScore = $j;
+            }
+
+            $deckArrayKey = $suitName . $j;
+            $faceName = $face . ' of ' . $suitName;
+
+            $deckBuild[$deckArrayKey] = ['face' => $faceName, 'score' => $cardScore];
         }
-
-        //what if face is a picture card?
-        if ($j > 10) {
-            $face = determinePictureFace($j);
-            $cardScore = 10;
-        } elseif ($j == 1) {
-            $face = 'Ace';
-            $cardScore = 1;
-        } else {
-            $face = $j;
-            $cardScore = $j;
-        }
-
-        $deckArrayKey = $suitName . $j;
-        $faceName = $face. ' of ' . $suitName;
-
-        $deckOfCards[$deckArrayKey] = ['face' => $faceName, 'score' => $cardScore];
     }
+    return $deckBuild;
 }
 
 /**
@@ -52,17 +84,6 @@ function determinePictureFace ($pictureFaceNo) {
         return 'King';
     }
 }
-
-//shuffle the deck
-shuffle($deckOfCards);
-
-//deal
-$playerHand = [ $deckOfCards[0], $deckOfCards[2] ];
-$dealerHand = [ $deckOfCards[1], $deckOfCards[3] ];
-
-//score
-$playerHandScore = $deckOfCards[0]['score'] + $deckOfCards[2]['score'];
-$dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
 
 /**
  * builds page display of results of game
@@ -88,8 +109,6 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
 return $playerHtml . $dealerHtml . $winnerHtml;
 }
 
-$dynamicHtmlDisplay = buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
-
 function whoWins($playerScore, $dealerScore) {
     if ($playerScore > $dealerScore) {
         return 'Player';
@@ -100,16 +119,6 @@ function whoWins($playerScore, $dealerScore) {
     }
 }
 
-////remove after testing
-//echo '<pre>';
-//var_dump($deckOfCards);
-//echo '</pre>';
-//echo '<pre>';
-//var_dump($playerHand, $dealerHand);
-//echo '</pre>';
-//echo '<br />' . $playerHandScore;
-//echo '<br />' . $dealerHandScore;
-////
 ?>
 
 
@@ -129,7 +138,7 @@ function whoWins($playerScore, $dealerScore) {
 <section>
 <h1>BlackJack</h1>
     <?php
-     echo $dynamicHtmlDisplay;
+     echo playBlackJack();
     ?>
 
 
