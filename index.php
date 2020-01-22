@@ -38,13 +38,13 @@ function buildDeck () {
         for ($j = 1; $j < 14; $j++) {
             //determine suit
             if ($i == 1) {
-                $suitName = 'Hearts<br /><br />&#9829;';
+                $suitName = 'Hearts';
             } elseif ($i == 2) {
-                $suitName = 'Clubs<br /><br />&#9827;';
+                $suitName = 'Clubs';
             } elseif ($i == 3) {
-                $suitName = 'Diamonds<br /><br />&#9830;';
+                $suitName = 'Diamonds';
             } elseif ($i == 4) {
-                $suitName = 'Spades<br /><br />&#9824;';
+                $suitName = 'Spades';
             } else {
                 echo 'opps there isn\'t a fifth suit';
             }
@@ -117,7 +117,21 @@ function redOrBlack ($stringtoParse) {
     }
 }
 
-function cardBuilder ($cardToProcess) {
+function cardBuilder ($cardToProcess, $score) {
+ //hearts &9829;
+//clubs &9827;
+//diamonds &9830;
+//spades &9824;
+    if (strpos($cardToProcess, 'Hearts')) {
+        $suitChrCode = '&#9829;';
+    } elseif (strpos($cardToProcess, 'Clubs')) {
+        $suitChrCode = '&#9827;';
+    } elseif (strpos($cardToProcess, 'Diamonds')) {
+        $suitChrCode = '&#9830;';
+    } elseif (strpos($cardToProcess, 'Spades')) {
+        $suitChrCode = '&#9824';
+    }
+
 
 }
 
