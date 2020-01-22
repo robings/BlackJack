@@ -39,6 +39,10 @@ section div {
     min-height: 150px;
 }
 
+section div.score {
+    width: 100%;
+}
+
 section div.winner {
     width: 100%;
     color: #CC0000;

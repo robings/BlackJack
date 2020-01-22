@@ -96,12 +96,12 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     $playerHtml = '<div><h2>Player</h2>';
     $playerHtml .= '<div class="card">' . $playerHandParam[0]['face'] . '</div>';
     $playerHtml .= '<div class="card">' . $playerHandParam[1]['face'] . '</div>';
-    $playerHtml .= '</div><div> Score: ' . $playerScoreParam . '</div>';
+    $playerHtml .= '<div class="score"> Score: ' . $playerScoreParam . '</div></div>';
 
     $dealerHtml = '<div><h2>Dealer</h2>';
     $dealerHtml .= '<div class="card">' . $dealerHandParam[0]['face'] . '</div>';
     $dealerHtml .= '<div class="card">' . $dealerHandParam[1]['face'] . '</div>';
-    $dealerHtml .= '</div><div>Score: ' . $dealerScoreParam . '</div>';
+    $dealerHtml .= '<div class="score">Score: ' . $dealerScoreParam . '</div></div>';
 
     $winnerHtml = '<div class="winner">';
     $winnerHtml .= 'The winner is: ' . whoWins($playerScoreParam , $dealerScoreParam) . '</div>';
