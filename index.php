@@ -72,28 +72,23 @@ $dealerHandScore = $deckOfCards[1]['score'] + $deckOfCards[3]['score'];
  * @param $dealerScoreParam
  */
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
+    $playerHtml = '<div class="player"><h2>Player</h2>';
+    $playerHtml .= $playerHandParam[0]['face'] . '<br />';
+    $playerHtml .= $playerHandParam[1]['face'] . '<br /><br />';
+    $playerHtml .= 'Score: ' . $playerScoreParam . '</div>';
 
-    echo '<div class="player">';
-    echo '<h2>Player</h2>';
-    echo $playerHandParam[0]['face'] . '<br />';
-    echo $playerHandParam[1]['face'] . '<br /><br />';
-    echo 'Score: ' . $playerScoreParam;
-    echo '</div>';
-    echo '<div class="dealer">';
-    echo '<h2>Dealer</h2>';
-    echo $dealerHandParam[0]['face'] . '<br />';
-    echo $dealerHandParam[1]['face'] . '<br /><br />';
-    echo 'Score: ' . $dealerScoreParam;
-    echo '</div>';
-    echo '<div class="winner">';
-    echo 'The winner is: ';
-     echo whoWins($playerScoreParam , $dealerScoreParam);
-    echo '</div>';
+    $dealerHtml = '<div class="dealer"><h2>Dealer</h2>';
+    $dealerHtml .= $dealerHandParam[0]['face'] . '<br />';
+    $dealerHtml .= $dealerHandParam[1]['face'] . '<br /><br />';
+    $dealerHtml .= 'Score: ' . $dealerScoreParam . '</div>';
 
+    $winnerHtml = '<div class="winner">';
+    $winnerHtml .= 'The winner is: ' . whoWins($playerScoreParam , $dealerScoreParam) . '</div>';
 
+return $playerHtml . $dealerHtml . $winnerHtml;
 }
 
-buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
+$dynamicHtmlDisplay = buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
 
 function whoWins($playerScore, $dealerScore) {
     if ($playerScore > $dealerScore) {
@@ -117,7 +112,7 @@ function whoWins($playerScore, $dealerScore) {
 ////
 ?>
 
-//html
+
 <!DOCTYPE html>
 <html lang="en-GB">
 
@@ -134,7 +129,7 @@ function whoWins($playerScore, $dealerScore) {
 <section>
 <h1>BlackJack</h1>
     <?php
-
+     echo $dynamicHtmlDisplay;
     ?>
 
 
