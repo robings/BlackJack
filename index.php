@@ -109,7 +109,7 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     echo '</div>';
     echo '<div class="winner">';
     echo 'The winner is: ';
-    echo ($playerScoreParam > $dealerScoreParam ? 'Player' : 'Dealer');
+     echo whoWins($playerScoreParam , $dealerScoreParam);
     echo '</div>';
     echo '</section>';
 
@@ -119,6 +119,16 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
 }
 
 buildPageDisplay($playerHand, $playerHandScore, $dealerHand, $dealerHandScore);
+
+function whoWins($playerScore, $dealerScore) {
+    if ($playerScore > $dealerScore) {
+        return 'Player';
+    } elseif ($playerScore == $dealerScore) {
+        return 'Nobody. It\'s a draw';
+    } else {
+        return 'Dealer';
+    }
+}
 
 ////remove after testing
 //echo '<pre>';
