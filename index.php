@@ -94,19 +94,27 @@ function determinePictureFace ($pictureFaceNo) {
  */
 function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam, $dealerScoreParam) {
     $playerHtml = '<div><h2>Player</h2>';
-    $playerHtml .= '<div class="card">' . $playerHandParam[0]['face'] . '</div>';
-    $playerHtml .= '<div class="card">' . $playerHandParam[1]['face'] . '</div>';
+    $playerHtml .= '<div class="card" style="color: ' .redOrBlack($playerHandParam[0]['face']) . '">' . $playerHandParam[0]['face'] . '</div>';
+    $playerHtml .= '<div class="card" style="color: ' .redOrBlack($playerHandParam[1]['face']) . '">' . $playerHandParam[1]['face'] . '</div>';
     $playerHtml .= '<div class="score"> Score: ' . $playerScoreParam . '</div></div>';
 
     $dealerHtml = '<div><h2>Dealer</h2>';
-    $dealerHtml .= '<div class="card">' . $dealerHandParam[0]['face'] . '</div>';
-    $dealerHtml .= '<div class="card">' . $dealerHandParam[1]['face'] . '</div>';
+    $dealerHtml .= '<div class="card" style="color: ' .redOrBlack($dealerHandParam[0]['face']) . '">' . $dealerHandParam[0]['face'] . '</div>';
+    $dealerHtml .= '<div class="card" style="color: ' .redOrBlack($dealerHandParam[1]['face']) . '">' . $dealerHandParam[1]['face'] . '</div>';
     $dealerHtml .= '<div class="score">Score: ' . $dealerScoreParam . '</div></div>';
 
     $winnerHtml = '<div class="winner">';
     $winnerHtml .= 'The winner is: ' . whoWins($playerScoreParam , $dealerScoreParam) . '</div>';
 
 return $playerHtml . $dealerHtml . $winnerHtml;
+}
+
+function redOrBlack ($stringtoParse) {
+    if (strpos($stringtoParse, 'Hearts') || strpos($stringtoParse, 'Diamonds')) {
+        return '#ff0000';
+    } else {
+        return '#000000';
+    }
 }
 
 function whoWins($playerScore, $dealerScore) {
