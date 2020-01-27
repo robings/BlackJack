@@ -111,4 +111,12 @@ class FunctionTests extends TestCase {
         $secondInput = 4;
         $case = redOrBlack($firstInput, $secondInput);
     }
+
+    //unit test for determineSuit function
+    public function testdetermineSuitHearts() {
+        $expected = 'Hearts';
+        $input = 1;
+        $case = determineSuit($input);
+        $this->assertEquals($expected, $case);
+    }
 }

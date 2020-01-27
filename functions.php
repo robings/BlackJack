@@ -42,6 +42,24 @@ function buildDeck () {
     return $deckBuild;
 }
 
+//function part of replacement for deck building function
+/**
+ * function to determine suit from an integer
+ * @param int $suitDeterminer - the number from a loop counting 1 to 4
+ * @return string - the name of the suit
+ */
+function determineSuit (int $suitDeterminer): string {
+    if ($suitDeterminer == 1) {
+        return 'Hearts';
+    } elseif ($suitDeterminer == 2) {
+        return 'Clubs';
+    } elseif ($suitDeterminer == 3) {
+        return 'Diamonds';
+    } elseif ($suitDeterminer == 4) {
+        return 'Spades';
+    }
+}
+
 /**
  * function to determine picture card face
  * @param int $pictureFaceNo
