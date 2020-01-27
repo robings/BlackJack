@@ -3,10 +3,6 @@
 require 'functions.php';
 //blackjack aces low, picture cards 10
 
-/** function to call the deck builder, shuffle the deck, deal, score and call function to build the html to display
- * @return string
- */
-
 $deckOfCards = buildDeck();
 //shuffle the deck
 shuffle($deckOfCards);
