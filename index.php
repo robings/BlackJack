@@ -1,6 +1,6 @@
 <?php
 
-require 'functions.php';
+require_once 'functions.php';
 //blackjack aces low, picture cards 10
 
 $deckOfCards = buildDeck();
