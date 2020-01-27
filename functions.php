@@ -85,7 +85,7 @@ function buildPageDisplay($playerHandParam, $playerScoreParam, $dealerHandParam,
     return $playerHtml . $dealerHtml . $winnerHtml;
 }
 
-function redOrBlack ($stringtoParse) {
+function redOrBlack (string $stringtoParse): string {
     if (strpos($stringtoParse, 'Hearts') || strpos($stringtoParse, 'Diamonds')) {
         return '#ff0000';
     } else {

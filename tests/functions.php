@@ -5,7 +5,9 @@ require '../functions.php';
 use PHPUnit\Framework\TestCase;
 
 class FunctionTests extends TestCase {
-  public function testdeterminePictureFaceSuccessJack() {
+  //unit tests for determinePictureFace
+
+    public function testdeterminePictureFaceSuccessJack() {
       $expected = 'Jack';
       $input = 11;
       $case = determinePictureFace($input);
@@ -23,16 +25,54 @@ class FunctionTests extends TestCase {
         $case = determinePictureFace($input);
         $this->assertEquals($expected, $case);
     }
-//    public function testdeterminePictureFaceFailure() {
-//        $expected = NULL;
-//        $input = 5;
-//        $case = determinePictureFace($input);
-//        $this->assertEquals($expected, $case);
-//    }
+    public function testdeterminePictureFaceFailure() {
+        $this->expectException(TypeError::class);
+        $input = 5;
+        $case = determinePictureFace($input);
+    }
 
     public function testdeterminePictureFaceMalformed() {
       $this->expectException(TypeError::class);
       $input = [];
       $case = determinePictureFace($input);
+    }
+
+    //unit tests for redOrBlack
+    public function testredOrBlackSuccessHearts() {
+        $expected = '#ff0000';
+        $input = '3 of Hearts';
+        $case = redOrBlack($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testredOrBlackSuccessDiamonds() {
+        $expected = '#ff0000';
+        $input = '5 of Diamonds';
+        $case = redOrBlack($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testredOrBlackSuccessClubs() {
+        $expected = '#000000';
+        $input = 'King of Clubs';
+        $case = redOrBlack($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testredOrBlackSuccessSpades() {
+        $expected = '#000000';
+        $input = '10 of Spades';
+        $case = redOrBlack($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testredOrBlackFailure() {
+        $expected = '#000000';
+        $input = 'the king of everything';
+        $case = redOrBlack($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testredOrBlackMalformed() {
+        $this->expectException(TypeError::class);
+        $input = [];
+        $case = redOrBlack($input);
     }
 }
