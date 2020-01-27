@@ -44,10 +44,10 @@ function buildDeck () {
 
 /**
  * function to determine picture card face
- * @param $pictureFaceNo
+ * @param int $pictureFaceNo
  * @return string
  */
-function determinePictureFace ($pictureFaceNo) {
+function determinePictureFace (int $pictureFaceNo): string {
     if ($pictureFaceNo == 11) {
         return 'Jack';
     } elseif ($pictureFaceNo == 12) {
