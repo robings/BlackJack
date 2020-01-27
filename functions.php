@@ -77,6 +77,17 @@ function determinePictureFace (int $pictureFaceNo): string {
     }
 }
 
+//repurposing parts of above functions to determine card face for new deck build ** still to complete!!!!!
+function determineFace (int $cardNo): string {
+    if ($cardNo > 10) {
+        $face = determinePictureFace($cardNo);
+    } elseif ($cardNo == 1) {
+        $face = 'Ace';
+    } else {
+        $face = $cardNo;
+    }
+}
+
 /**
  * builds page display of results of game
  * @param $playerHandParam
