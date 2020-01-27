@@ -75,4 +75,40 @@ class FunctionTests extends TestCase {
         $input = [];
         $case = redOrBlack($input);
     }
+
+    //unit tests for whoWins function
+    public function testwhoWinsSuccessPlayer() {
+        $expected = 'Player';
+        $firstInput = 18;
+        $secondInput = 5;
+        $case = whoWins($firstInput, $secondInput);
+        $this->assertEquals($expected, $case);
+    }
+    public function testwhoWinsSuccessDealer() {
+        $expected = 'Dealer';
+        $firstInput = 12;
+        $secondInput = 20;
+        $case = whoWins($firstInput, $secondInput);
+        $this->assertEquals($expected, $case);
+    }
+    public function testwhoWinsSuccessDraw() {
+        $expected = 'Nobody. It\'s a draw';
+        $firstInput = 12;
+        $secondInput = 12;
+        $case = whoWins($firstInput, $secondInput);
+        $this->assertEquals($expected, $case);
+    }
+    public function testwhoWinsSuccessminus() {
+        $expected = 'Dealer';
+        $firstInput = -3;
+        $secondInput = -1;
+        $case = whoWins($firstInput, $secondInput);
+        $this->assertEquals($expected, $case);
+    }
+    public function testwhoWindsMalformed() {
+        $this->expectException(TypeError::class);
+        $firstInput = [];
+        $secondInput = 4;
+        $case = redOrBlack($firstInput, $secondInput);
+    }
 }

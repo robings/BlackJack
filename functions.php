@@ -111,7 +111,7 @@ function cardBuilder ($cardToProcess, $score) {
 
 }
 
-function whoWins($playerScore, $dealerScore) {
+function whoWins(int $playerScore, int $dealerScore): string {
     if ($playerScore > $dealerScore) {
         return 'Player';
     } elseif ($playerScore == $dealerScore) {
