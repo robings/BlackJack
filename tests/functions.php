@@ -119,4 +119,33 @@ class FunctionTests extends TestCase {
         $case = determineSuit($input);
         $this->assertEquals($expected, $case);
     }
+    public function testdetermineSuitClubs() {
+        $expected = 'Clubs';
+        $input = 2;
+        $case = determineSuit($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testdetermineSuitDiamonds() {
+        $expected = 'Diamonds';
+        $input = 3;
+        $case = determineSuit($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testdetermineSuitSpades() {
+        $expected = 'Spades';
+        $input = 4;
+        $case = determineSuit($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testdetermineSuitFailure() {
+        $expected = 'Opps, no other suits';
+        $input = 5;
+        $case = determineSuit($input);
+        $this->assertEquals($expected, $case);
+    }
+    public function testdetermineSuitMalformed() {
+        $this->expectException(TypeError::class);
+        $input = [];
+        $case = determineSuit($input);
+    }
 }

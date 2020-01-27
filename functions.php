@@ -57,6 +57,8 @@ function determineSuit (int $suitDeterminer): string {
         return 'Diamonds';
     } elseif ($suitDeterminer == 4) {
         return 'Spades';
+    } else {
+        return 'Opps, no other suits';
     }
 }
 
